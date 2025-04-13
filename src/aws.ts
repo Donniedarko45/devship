@@ -1,9 +1,16 @@
 import { S3 } from "aws-sdk";
 import fs from "fs";
+import dotenv from "dotenv";
 
+dotenv.config();
+// Initialize dotenv to load environment variables from .env file
+// Initialize S3 client with credentials from environment variables
+// Initialize S3 client with credentials from environment variables
+// Initialize S3 client with credentials from environment variables
+// Initialize S3 client with credentials from environment variables   
 const s3 = new S3({
- accessKeyId:"AKIAT7JJVBEYO7D2DZPF",
- secretAccessKey:"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",
+ accessKeyId:process.env.AWS_ACCESS_KEY_ID,
+ secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY,
   region: 'us-east-1',
   s3ForcePathStyle: true
 });
