@@ -4,13 +4,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 // Initialize dotenv to load environment variables from .env file
-// Initialize S3 client with credentials from environment variables
-// Initialize S3 client with credentials from environment variables
-// Initialize S3 client with credentials from environment variables
-// Initialize S3 client with credentials from environment variables   
 const s3 = new S3({
- accessKeyId:process.env.AWS_ACCESS_KEY_ID,
- secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY,
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   region: 'us-east-1',
   s3ForcePathStyle: true
 });

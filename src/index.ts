@@ -5,6 +5,9 @@ import simpleGit from "simple-git";
 import path from "path"
 import { uploadFile } from "./aws";
 import { getAllFiles } from "./file";
+import { createClient } from "redis"
+const publisher = createClient()
+publisher.connect();
 
 
 const app = express();
@@ -22,6 +25,8 @@ app.post("/deploy", async (req, res) => {
   files.forEach(async file => {
     await uploadFile(file.slice(__dirname.length + 1), file);
   })
+
+  publisher.lPush("build-queue", id);
 
   res.json({
     id: id
